@@ -10,7 +10,7 @@
   export default {
     name: 'rubber',
     components: {
-      Editor
+      Editor,
       Renderer
     }
   }
