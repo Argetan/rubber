@@ -5,14 +5,12 @@
 
 <script>
   import Editor from '@/components/Editor'
-  import Menu from '@/components/Menu'
   import Renderer from '@/components/Renderer'
 
   export default {
     name: 'rubber',
     components: {
-      Editor,
-      Menu,
+      Editor
       Renderer
     }
   }
