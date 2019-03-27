@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <editor></editor>
+    <renderer></renderer>
   </div>
 </template>
 

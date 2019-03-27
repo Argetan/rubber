@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper">
+  <div id="renderer">
   </div>
 </template>
 
