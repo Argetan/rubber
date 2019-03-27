@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <landing-page></landing-page>
   </div>
 </template>
 
 <script>
-  import LandingPage from '@/components/LandingPage'
+  import Editor from '@/components/Editor'
+  import Menu from '@/components/Menu'
+  import Renderer from '@/components/Renderer'
 
   export default {
     name: 'rubber',
     components: {
-      LandingPage
+      Editor,
+      Menu,
+      Renderer
     }
   }
 </script>
 
-<style>
-  /* CSS */
+<style lang="scss">
+  /* SCSS */
 </style>
