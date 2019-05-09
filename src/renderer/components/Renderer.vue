@@ -1,26 +1,20 @@
 <template>
   <div id="renderer">
+    <div ref="holder"></div>
   </div>
 </template>
 
 <script>
-  var mjAPI = require('mathjax-node')
-
-  console.log('Calling start')
-  mjAPI.start()
-
-  console.log('Calling typeset')
-  mjAPI.typeset({
-    math: 'E = mc^2',
-    format: 'TeX',
-    svg: true
-  }, (data) => {
-    console.log('Data received')
-    console.log(data)
-  })
+  const { typesetMath } = require('mathjax-electron')
 
   export default {
-    name: 'renderer'
+    name: 'renderer',
+    mounted () {
+      var container = this.$refs['holder']
+      container.innerHTML = '$$\\sum\\limits_{i=0}^{\\infty} \\frac{1}{n^2}$$'
+
+      typesetMath(container)
+    }
   }
 </script>
 
