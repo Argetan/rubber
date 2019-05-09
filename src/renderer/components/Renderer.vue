@@ -13,7 +13,9 @@
       var container = this.$refs['holder']
       container.innerHTML = '$$\\sum\\limits_{i=0}^{\\infty} \\frac{1}{n^2}$$'
 
-      typesetMath(container)
+      typesetMath(container, () => {
+        console.log('test')
+      })
     }
   }
 </script>
