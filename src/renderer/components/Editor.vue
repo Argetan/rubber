@@ -116,5 +116,8 @@
   }
 </script>
 
-<style lang="scss" scoped>
-</syle>
+<style lang="scss">
+.ace_gutter {
+    border: none !important;
+}
+</style>
