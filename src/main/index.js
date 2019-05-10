@@ -15,6 +15,8 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
+const { productName, version, license } = require('../../package.json')
+
 function createWindow () {
   /**
    * Initial window options
@@ -32,7 +34,18 @@ function createWindow () {
   })
 }
 
+function setAboutPanelOptions () {
+  app.setAboutPanelOptions({
+    applicationName: productName,
+    applicationVersion: 'v' + version.split('.')[0],
+    version: version,
+    copyright: license
+  })
+}
+
 app.on('ready', createWindow)
+
+app.on('ready', setAboutPanelOptions)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
