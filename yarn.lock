@@ -291,6 +291,11 @@ accessibility-developer-tools@^2.11.0:
   resolved "https://registry.yarnpkg.com/accessibility-developer-tools/-/accessibility-developer-tools-2.12.0.tgz#3da0cce9d6ec6373964b84f35db7cfc3df7ab514"
   integrity sha1-PaDM6dbsY3OWS4TzXbfPw996tRQ=
 
+ace-builds@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.4.4.tgz#b1ad500f99b451710ce51d20f43313027e9fb73a"
+  integrity sha512-EQArUYup9c3lBv8meKBjisff/qhhQmU/6LnLhVDfxe+Bnjr0Lz7qhL4Mp8HpwNQzmCqLunjdPFuBtCELVVG6zw==
+
 acorn-dynamic-import@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-4.0.0.tgz#482210140582a36b83c3e342e1cfebcaa9240948"

@@ -25,6 +25,7 @@
     "postinstall": "npm run lint:fix"
   },
   "dependencies": {
+    "ace-builds": "^1.4.4",
     "bootstrap": "^4.3.1",
     "mathjax-electron": "^3.0.0",
     "vue": "^2.5.16",

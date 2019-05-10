@@ -19,5 +19,4 @@
 </script>
 
 <style lang="scss">
-  /* SCSS */
 </style>
