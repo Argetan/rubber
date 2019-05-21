@@ -1,6 +1,6 @@
 <template>
-  <div id="editor" ref="editor">
-  </div>
+    <div id="editor" ref="editor">
+    </div>
 </template>
 
 <script>
@@ -10,114 +10,73 @@
   ace.config.setModuleUrl('ace/mode/latex', require('ace-builds/src-noconflict/mode-latex.js'))
   ace.config.setModuleUrl('ace/theme/chaos', require('ace-builds/src-noconflict/theme-chaos.js'))
 
-  const mode = 'ace/mode/latex'
-  const theme = 'ace/theme/chaos'
-
   export default {
     name: 'editor',
     data () {
       return {
         ace: {
-          editor: undefined
+          editor: undefined,
+          theme: 'ace/theme/chaos',
+          mode: 'ace/mode/latex'
         }
       }
     },
     mounted () {
-      this.ace.editor = ace.edit(null)
-
-      this.ace.editor.setOptions({
-        selectionStyle: 'line',
+      ace.edit(this.$refs['editor'], {
+        // selectionStyle: string,
         highlightActiveLine: false,
-        highlightSelectedWord: true,
-        readOnly: false,
-        copyWithEmptySelection: false,
-        cursorStyle: 'ace',
-        mergeUndoDeltas: true,
+        // highlightSelectedWord: boolean,
+        // readOnly: boolean,
+        // copyWithEmptySelection: boolean,
+        // cursorStyle: 'ace' | 'slim' | 'smooth' | 'wide',
+        // mergeUndoDeltas: true | false | 'always',
         behavioursEnabled: true,
         wrapBehavioursEnabled: true,
-        showLineNumbers: true,
-        hScrollBarAlwaysVisible: false,
-        vScrollBarAlwaysVisible: false,
+        autoScrollEditorIntoView: true,
+        // keyboardHandler: string,
+        // value: '$$\\sum\\limits_{i=0}^{\\infty} \\frac{1}{n^2}$$',
+        // session: EditSession,
+        wrap: true,
+        // wrapMethod: 'code' | 'text' | 'auto',
+        indentedSoftWrap: true,
+        firstLineNumber: 1,
+        // useWorker: boolean,
+        useSoftTabs: true,
+        tabSize: 4,
+        navigateWithinSoftTabs: false,
+        // foldStyle: 'markbegin' | 'markbeginend' | 'manual',
+        // overwrite: boolean,
+        // newLineMode: NewLineMode,
+        mode: this.ace.mode,
+        // animatedScroll: boolean,
+        // showInvisibles: boolean,
+        showPrintMargin: false,
+        // printMarginColumn: number,
+        // printMargin: boolean | number,
+        // showGutter: boolean,
+        // fadeFoldWidgets: boolean,
+        // showFoldWidgets: boolean,
+        // showLineNumbers: boolean,
+        // displayIndentGuides: boolean,
         highlightGutterLine: false,
-        animatedScroll: false,
-        showInvisibles: false,
-        showPrintMargin: false,
-        printMarginColumn: 80,
-        printMargin: 80,
-        fadeFoldWidgets: false,
-        showFoldWidgets: true,
-        displayIndentGuides: true,
-        showGutter: true,
-        fontSize: 12,
-        scrollPastEnd: 0,
-        theme: theme,
-        maxLines: 50,
-        minLines: 10,
-        maxPixelHeight: 0,
-        useTextareaForIME: true,
-        scrollSpeed: 2,
-        dragDelay: 150,
-        dragEnabled: true,
-        focusTimeout: 0,
-        tooltipFollowsMouse: true,
-        firstLineNumber: 1,
-        overwrite: false,
-        newLineMode: 'auto',
-        useWorker: true,
-        useSoftTabs: true,
-        navigateWithinSoftTabs: false,
-        tabSize: 4,
-        wrap: 'on',
-        indentedSoftWrap: true,
-        foldStyle: 'markbegin',
-        mode: mode,
-        enableMultiselect: true,
-        enableBlockSelect: true
+        // hScrollBarAlwaysVisible: boolean,
+        // vScrollBarAlwaysVisible: boolean,
+        // fontSize: number,
+        // fontFamily: string,
+        maxLines: Infinity,
+        minLines: 5,
+        scrollPastEnd: 0.5,
+        // fixedWidthGutter: boolean,
+        theme: this.ace.theme
+        // hasCssTransforms: boolean,
+        // maxPixelHeight: number
       })
-
-      this.ace.editor.renderer.setOptions({
-        animatedScroll: false,
-        showInvisibles: false,
-        showPrintMargin: false,
-        printMarginColumn: 80,
-        printMargin: 80,
-        showGutter: true,
-        fadeFoldWidgets: false,
-        showFoldWidgets: true,
-        displayIndentGuides: true,
-        highlightGutterLine: true,
-        hScrollBarAlwaysVisible: false,
-        vScrollBarAlwaysVisible: false,
-        fontSize: 12,
-        maxLines: 50,
-        minLines: 10,
-        maxPixelHeight: 0,
-        scrollPastEnd: 0,
-        theme: theme,
-        useTextareaForIME: true
-      })
-
-      this.ace.editor.session.setOptions({
-        wrap: 'off',
-        wrapMethod: 'auto',
-        indentedSoftWrap: true,
-        firstLineNumber: 1,
-        useWorker: true,
-        useSoftTabs: true,
-        tabSize: 4,
-        navigateWithinSoftTabs: false,
-        foldStyle: 'markbegin',
-        overwrite: false,
-        newLineMode: 'auto',
-        mode: mode
-      })
-      this.$refs['editor'].appendChild(this.ace.editor.container)
     }
   }
 </script>
 
 <style lang="scss">
-.ace_gutter {
-    border: none !important;
-}
+    .ace_gutter {
+        border-right: none !important;
+    }
 </style>
