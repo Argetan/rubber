@@ -1,16 +1,16 @@
 <template>
-  <div id="app">
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col p-0">
-            <editor></editor>
-          </div>
-          <div class="col p-0">
-            <renderer></renderer>
-          </div>
-      </div>
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col p-0">
+                    <editor ref="editor"></editor>
+                </div>
+                <div class="col p-0">
+                    <renderer ref="renderer"></renderer>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -20,16 +20,21 @@
   export default {
     name: 'rubber',
     components: {
-      Editor,
-      Renderer
+      Renderer,
+      Editor
+    },
+    data () {
+      return {
+        math: ''
+      }
     }
   }
 </script>
 
 <style lang="scss">
-body {
-  // Matches the Chaos theme from Ace
-  color: #E6E1DC;
-  background: #161616;
-}
+    body {
+        // Matches the Chaos theme from Ace
+        color: #E6E1DC;
+        background: #161616;
+    }
 </style>

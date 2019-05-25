@@ -22,7 +22,7 @@
       }
     },
     mounted () {
-      ace.edit(this.$refs['editor'], {
+      this.ace.editor = ace.edit(this.$refs['editor'], {
         // selectionStyle: string,
         highlightActiveLine: false,
         // highlightSelectedWord: boolean,
@@ -34,7 +34,7 @@
         wrapBehavioursEnabled: true,
         autoScrollEditorIntoView: true,
         // keyboardHandler: string,
-        // value: '$$\\sum\\limits_{i=0}^{\\infty} \\frac{1}{n^2}$$',
+        value: this.$parent.math,
         // session: EditSession,
         wrap: true,
         // wrapMethod: 'code' | 'text' | 'auto',
@@ -71,6 +71,12 @@
         // hasCssTransforms: boolean,
         // maxPixelHeight: number
       })
+
+      this.ace.editor.on('change', () => {
+        this.$parent.math = this.ace.editor.getValue()
+      })
+
+      this.ace.editor.setValue('$$\\sum\\limits_{i=0}^{\\infty} \\frac{1}{n^2}$$')
     }
   }
 </script>
